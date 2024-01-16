@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "ng-vibe",
   "sourceRoot": "apps/modalize-playground/src",
-  "tags": [],
+  "tags": ["type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",

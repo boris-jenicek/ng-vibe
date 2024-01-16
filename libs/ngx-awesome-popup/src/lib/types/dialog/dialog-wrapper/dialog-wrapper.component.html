@@ -1,0 +1,88 @@
+<div
+  class="ngx-awesome-popup-overlay aw-dialog-modal"
+  (dblclick)="onOverlayClicked($event)"
+  [@fadeInOut]="{
+    value: fadeInOutAnimation,
+    params: {
+      closeDelay: dialogBelonging.dialogCoreConfig.animationOut === disappearanceAnimation.NONE ? '200ms' : '300ms'
+    }
+  }">
+  <div
+    class="evolve-parent-dialog"
+    [@.disabled]="
+      dialogBelonging.dialogCoreConfig.animationIn === appearanceAnimation.NONE &&
+      dialogBelonging.dialogCoreConfig.animationOut === disappearanceAnimation.NONE
+    "
+    [@boxAnimations]="boxAnimation"
+    #elDialogWrapper
+    [ngStyle]="
+      dialogBelonging.dialogCoreConfig.fullScreen && {
+        maxWidth: '100%',
+        maxHeight: '100%',
+        height: '100%',
+        width: '100%',
+        borderRadius: '0'
+      }
+    "
+    [className]="layoutHelper.getBoxClasses(dialogBelonging.dialogCoreConfig.layoutType, 'evolve-parent-dialog')">
+    <div
+      class="loader-holder"
+      [ngClass]="
+        !dialogBelonging.dialogCoreConfig.displayLoader ? 'dialog-loader-off' : showLoader ? 'dialog-loader-active' : 'dialog-loader-gone'
+      ">
+      <div class="dialog-loader">
+        <ng-template appInsertionLoader></ng-template>
+      </div>
+    </div>
+    <ng-container *ngIf="!dialogBelonging.dialogCoreConfig.fullScreen; else fullScreen"></ng-container>
+    <ng-template #fullScreen></ng-template>
+    <div
+      class="content-holder"
+      [ngStyle]="
+        dialogBelonging.dialogCoreConfig.fullScreen
+          ? {
+              width: '100%',
+              height: '100%'
+            }
+          : {
+              width: dialogBelonging.dialogCoreConfig.width,
+              minWidth: dialogBelonging.dialogCoreConfig.minWidth,
+              maxWidth: dialogBelonging.dialogCoreConfig.maxWidth,
+              height: dialogBelonging.dialogCoreConfig.height,
+              minHeight: dialogBelonging.dialogCoreConfig.minHeight,
+              maxHeight: dialogBelonging.dialogCoreConfig.maxHeight
+            }
+      ">
+      <div
+        class="component-content"
+        [ngClass]="
+          !dialogBelonging.dialogCoreConfig.displayLoader
+            ? 'component-content-loader-off'
+            : showLoader
+            ? 'component-content-preparing'
+            : 'component-content-ready'
+        ">
+        <ng-template appInsertion></ng-template>
+      </div>
+    </div>
+
+    <div class="button-holder" #elButtonWrapper>
+      <div
+        class="button-section"
+        *ngIf="dialogBelonging.buttons.length > 0"
+        [ngStyle]="{
+          'text-align': dialogBelonging.dialogCoreConfig.buttonPosition
+        }">
+        <button
+          #elButton
+          *ngFor="let button of dialogBelonging.buttons"
+          [disabled]="button.disabled"
+          [style.display]="button.hidden ? 'none' : 'inline'"
+          (click)="onCustomButton(button)"
+          [className]="layoutHelper.getButtonClasses(button.layoutType, 'ed-btn ed-btn-lg')">
+          {{ button.label }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

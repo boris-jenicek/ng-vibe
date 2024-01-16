@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@costlydeveloper/ngx-awesome-popup": [
+        "libs/ngx-awesome-popup/src/index.ts"
+      ],
+      "@ngvibe/modalize": ["libs/modalize/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

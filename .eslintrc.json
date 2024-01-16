@@ -13,8 +13,12 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:lib","scope:publishable"]
+              },
+              {
+                "sourceTag": "scope:publishable",
+                "onlyDependOnLibsWithTags": ["scope:publishable"]
               }
             ]
           }
