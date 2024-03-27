@@ -27,7 +27,7 @@
     "tw-colors": "^3.3.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~17.0.0",
+    "@angular-devkit/build-angular": "~17.3.2",
     "@angular-devkit/core": "~17.0.0",
     "@angular-devkit/schematics": "~17.0.0",
     "@angular-eslint/eslint-plugin": "~17.0.0",
