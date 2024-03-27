@@ -1,0 +1,12 @@
+@if (overlayVisible) {
+<div class="overlay" @overlayAnimation></div>
+}
+<div
+  [@drawerAnimations]="animationState"
+  (@drawerAnimations.done)="onAnimationDone($event)"
+  (@drawerAnimations.start)="onAnimationStart($event)"
+  [ngStyle]="getDrawerStyles()"
+  class="drawer-wrapper"
+>
+  <ng-template #drawerContent></ng-template>
+</div>

@@ -1,0 +1,23 @@
+<li routerLinkActive #itemRla="routerLinkActive" class="mb-2">
+  @if(menuType(menuItem).route){
+  <button
+    class="menu-item"
+    (click)="collapseOtherItems()"
+    [routerLink]="menuItem.route"
+    [ngClass]="
+      itemRla.isActive
+        ? 'bg-gray-200 dark:bg-gray-700 rounded py-1 px-2'
+        : 'py-1 px-2'
+    "
+  >
+    {{ menuType(menuItem).Name }}
+  </button>
+  } @else {
+  <button
+    class="menu-item"
+    (click)="menuItem.isCollapsed = !menuItem.isCollapsed"
+  >
+    {{ menuType(menuItem).Name }}
+  </button>
+  }
+</li>

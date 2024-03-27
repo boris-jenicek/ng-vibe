@@ -1,8 +1,14 @@
 {
   "name": "@ng-vibe/source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:app": "nx s ng-vibe-playground --no-cloud",
+    "lint:drawer": "nx run drawer:lint --no-cloud",
+    "test:drawer": "nx run drawer:test --no-cloud",
+    "build:drawer": "nx build drawer --no-cloud && nx run drawer:scss-to-css --no-cloud",
+    "publish:drawer": "npm publish dist/libs/drawer --access public --scope @ng-vibe"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.0.0",
@@ -16,7 +22,9 @@
     "@nx/angular": "17.2.8",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.0"
+    "zone.js": "~0.14.0",
+    "tailwindcss": "^3.0.24",
+    "tw-colors": "^3.3.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~17.0.0",

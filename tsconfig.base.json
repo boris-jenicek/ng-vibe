@@ -15,10 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@costlydeveloper/ngx-awesome-popup": [
-        "libs/ngx-awesome-popup/src/index.ts"
-      ],
-      "@ngvibe/modalize": ["libs/modalize/src/index.ts"]
+      "@ng-vibe/button": ["libs/common/button/src/index.ts"],
+      "@ng-vibe/drawer": ["libs/drawer/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

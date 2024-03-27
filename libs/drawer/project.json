@@ -1,0 +1,49 @@
+{
+  "name": "drawer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/drawer/src",
+  "prefix": "x",
+  "tags": ["scope:lib"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/drawer/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/drawer/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/drawer/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "scss-to-css": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/drawer"],
+      "options": {
+        "commands": [
+          {
+            "command": "sass libs/drawer/src/styles/styles.scss:dist/libs/drawer/styles/styles.css"
+          }
+        ],
+        "parallel": false
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/drawer/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

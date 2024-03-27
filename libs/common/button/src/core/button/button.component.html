@@ -1,0 +1,9 @@
+<button
+  [ngClass]="{ 'read-only-colors': disabled }"
+  [class]="buildButtonCssString"
+  (click)="buttonClick.emit($event)"
+  [disabled]="disabled"
+  [attr.data-e2e-id]="e2e"
+>
+  <ng-content></ng-content>
+</button>
