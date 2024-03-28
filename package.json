@@ -7,8 +7,8 @@
     "lint:drawer": "nx run drawer:lint --no-cloud",
     "test:drawer": "nx run drawer:test --no-cloud",
     "build:drawer": "nx build drawer --no-cloud && nx run drawer:scss-to-css --no-cloud",
-    "publish:drawer": "npm publish dist/libs/drawer --access public --scope @ng-vibe",
-    "publish:nx:drawer": " nx run drawer:nx-release-publish --dry-run"
+    "reliese": "nx release --skip-publish --dry-run",
+    "publish:drawer": "npm publish dist/libs/drawer --access public --scope @ng-vibe"
   },
   "private": false,
   "dependencies": {
