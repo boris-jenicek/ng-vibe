@@ -6,8 +6,8 @@
     "start": "nx s ng-vibe-playground --no-cloud",
     "lint:drawer": "nx run drawer:lint --no-cloud",
     "test:drawer": "nx run drawer:test --no-cloud",
-    "build:drawer": "nx build drawer --no-cloud && nx run drawer:scss-to-css --no-cloud",
     "reliese": "nx release --skip-publish --dry-run",
+    "build:drawer": "nx build drawer --no-cloud && nx run drawer:scss-to-css --no-cloud",
     "publish:drawer": "npm publish dist/libs/drawer --access public --scope @ng-vibe"
   },
   "private": false,
