@@ -1,23 +1,36 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "release": {
+    "version": {
+      "conventionalCommits": true
+    },
+    "changelog": {
+      "projectChangelogs": true
+    },
+    "projectsRelationship": "independent",
+    "releaseTagPattern": "release/{projectName}/{version}",
+    "git": {
+      "commitMessage": "chore(release): {version}"
+    }
+  },
   "targetDefaults": {
     "build": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
-    },
-    "lint": {
-      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
       "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
+        "production",
+        "^production"
       ]
     },
     "@nx/jest:jest": {
       "cache": true,
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "inputs": [
+        "default",
+        "^production",
+        "{workspaceRoot}/jest.preset.js"
+      ],
       "options": {
         "passWithNoTests": true
       },
@@ -28,13 +41,21 @@
         }
       }
     },
-    "e2e": {
+    "@nx/eslint:lint": {
       "cache": true,
-      "inputs": ["default", "^production"]
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "{workspaceRoot}/eslint.config.js"
+      ]
     }
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -65,5 +86,6 @@
       "style": "scss"
     }
   },
-  "nxCloudAccessToken": "MTNiNjExN2EtOWMyMC00MDhmLWI4ZTAtYTk2MDg2YzMxOGRmfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "MTNiNjExN2EtOWMyMC00MDhmLWI4ZTAtYTk2MDg2YzMxOGRmfHJlYWQtd3JpdGU=",
+  "useInferencePlugins": false
 }
