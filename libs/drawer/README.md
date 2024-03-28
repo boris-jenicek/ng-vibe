@@ -27,7 +27,7 @@ This package provides a straightforward, dynamic approach to incorporating drawe
 
 2. Incorporate `@ng-vibe/drawer` into your Angular module providers by importing `provideNgVibeDrawer`:
 
-   ```javascript
+   ```typescript
    import { provideNgVibeDrawer } from '@ng-vibe/drawer';
    ...
    providers: [
