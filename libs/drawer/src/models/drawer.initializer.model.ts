@@ -1,4 +1,5 @@
 import { Type } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
   DEFAULT_DRAWER_OPTIONS_BOTTOM,
   DEFAULT_DRAWER_OPTIONS_LEFT,
@@ -9,12 +10,13 @@ import { DrawerService } from '../drawer.service';
 import { DrawerPosition } from '../enums';
 import { IDrawerOptions } from '../interfaces';
 import { generateRandomString, ServiceLocator } from '../tools';
-
 import { DrawerRemoteControl } from './drawer.remote-control.model';
 
-export class DrawerInitializer {
+export class DrawerInit {
   readonly id = generateRandomString();
   #options: IDrawerOptions = DEFAULT_DRAWER_OPTIONS_RIGHT;
+  readonly #childComponent: Type<any>;
+  payload: null | any = null;
   set options(options: IDrawerOptions) {
     this.#options = {
       ...this.#options,
@@ -26,16 +28,21 @@ export class DrawerInitializer {
   }
   private drawerService: DrawerService;
 
-  constructor() {
+  constructor(component: Type<any>) {
+    this.#childComponent = component;
     this.drawerService = ServiceLocator.injector.get(DrawerService);
   }
 
-  public openDrawer(component: Type<any>): void {
-    this.drawerService.open(new DrawerRemoteControl(this), component);
+  public openDrawer(payload?: any): Observable<any> {
+    this.payload = payload || null;
+    return this.drawerService.open(
+      new DrawerRemoteControl(this),
+      this.#childComponent
+    );
   }
 
-  public closeDrawer(): void {
-    this.drawerService.close(this.id);
+  public closeDrawer(data?: any): void {
+    this.drawerService.close(this.id, data);
   }
 
   #preSetup(options: IDrawerOptions): IDrawerOptions {

@@ -7,7 +7,7 @@ import {
   Injectable,
   Type,
 } from '@angular/core';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable, Subject, take } from 'rxjs';
 import { DrawerComponent } from './drawer.component';
 import { AnimationEnum } from './enums';
 import { DrawerRemoteControl } from './models';
@@ -16,21 +16,21 @@ import { DrawerRemoteControl } from './models';
   providedIn: 'root',
 })
 export class DrawerService {
-  private drawers: Map<string, ComponentRef<DrawerComponent>> = new Map();
-  private drawerStates: BehaviorSubject<Map<string, boolean>> =
-    new BehaviorSubject(new Map());
-  public drawerStates$: Observable<Map<string, boolean>> =
-    this.drawerStates.asObservable();
-
   private appRef: ApplicationRef = inject(ApplicationRef);
-  private environmentInjector: EnvironmentInjector = this.appRef.injector;
+  private environmentInjector = inject(EnvironmentInjector);
+  private drawers = new Map<string, ComponentRef<DrawerComponent>>();
+  private drawerCloseSubject = new Subject<{ id: string; data: any }>();
+  public drawerStatesSubject = new BehaviorSubject<
+    Map<string, DrawerRemoteControl>
+  >(new Map());
+  public drawerStates$ = this.drawerStatesSubject.asObservable();
 
   public open(
     drawerRemoteControl: DrawerRemoteControl,
     component: Type<any>
-  ): void {
-    if (this.drawers.get(drawerRemoteControl.id)) {
-      return;
+  ): Observable<any> {
+    if (this.drawers.has(drawerRemoteControl.id)) {
+      return this.listenForClose(drawerRemoteControl.id);
     }
 
     const drawerComponentRef = createComponent(DrawerComponent, {
@@ -45,15 +45,17 @@ export class DrawerService {
       );
     }
 
-    this.updateDrawerState(drawerRemoteControl.id, true);
+    this.updateDrawerState(drawerRemoteControl.id, drawerRemoteControl);
     drawerComponentRef.instance.options = drawerRemoteControl.options;
     drawerComponentRef.instance.animationState = `${drawerRemoteControl.options.position}_${AnimationEnum.CLOSED}`;
     this.appRef.attachView(drawerComponentRef.hostView);
     const domElem = drawerComponentRef.location.nativeElement;
     document.body.appendChild(domElem);
+
+    return this.listenForClose(drawerRemoteControl.id);
   }
 
-  public close(id: string): void {
+  public close(id: string, data?: any): void {
     const drawerComponentRef = this.drawers.get(id);
 
     if (drawerComponentRef) {
@@ -62,14 +64,40 @@ export class DrawerService {
         this.appRef.detachView(drawerComponentRef.hostView);
         drawerComponentRef.destroy();
         this.drawers.delete(id);
-        this.updateDrawerState(id, false);
+        this.updateDrawerState(id, 'remove');
+        this.drawerCloseSubject.next({ id, data });
       });
     }
   }
 
-  updateDrawerState(id: string, isOpen: boolean): void {
-    const currentState = this.drawerStates.getValue();
-    const newState = new Map(currentState).set(id, isOpen);
-    this.drawerStates.next(newState);
+  private updateDrawerState(id: string, data: DrawerRemoteControl): void;
+  private updateDrawerState(id: string, data: 'remove'): void;
+
+  private updateDrawerState(
+    id: string,
+    data: DrawerRemoteControl | 'remove'
+  ): void {
+    const currentState = this.drawerStatesSubject.getValue();
+    if (data === 'remove') {
+      currentState.delete(id);
+    } else {
+      currentState.set(id, data);
+    }
+    this.drawerStatesSubject.next(currentState);
+  }
+
+  private listenForClose(id: string): Observable<any> {
+    return this.drawerCloseSubject.asObservable().pipe(
+      filter((event) => event.id === id),
+      map((event) => event.data),
+      take(1)
+    );
+  }
+
+  public closeAll(): void {
+    const drawers = this.drawers;
+    drawers.forEach((drawerComponentRef, id) => {
+      this.close(id);
+    });
   }
 }
