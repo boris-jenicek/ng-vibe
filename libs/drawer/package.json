@@ -1,6 +1,6 @@
 {
   "name": "@ng-vibe/drawer",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A dynamic drawer library for Angular 17+, enabling the creation of beautifully animated drawers with full control from parent and child components.",
   "repository": {
     "type": "git",
