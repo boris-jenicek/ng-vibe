@@ -1,0 +1,18 @@
+@if (overlayVisible) {
+<div
+  class="ng-vibe-dialog-overlay"
+  [@overlayAnimation]="overlayAnimationState"
+></div>
+}
+<div class="ng-vibe-dialog-wrapper">
+  <div
+    [@boxAnimations]="boxAnimationState"
+    (@boxAnimations.done)="onAnimationDone($event)"
+    class="ng-vibe-dialog"
+    [ngStyle]="getDialogStyles()"
+  >
+    <div class="dialog-content" [@fadeinOutAnimation]="contentAnimationState">
+      <ng-template #dialogContent></ng-template>
+    </div>
+  </div>
+</div>

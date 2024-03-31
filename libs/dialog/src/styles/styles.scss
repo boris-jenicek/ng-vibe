@@ -1,0 +1,44 @@
+$z-index-overlay: 9999;
+$z-index-drawer: 10000;
+$overlay-shade: #000000;
+$overlay-backdrop-filter: blur(1px);
+$overlay-background: transparentize($overlay-shade, 0.75);
+$dialog-background: white;
+$dialog-border-radius: 0.75rem;
+$dialog-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.1),
+  0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+.ng-vibe-dialog-overlay {
+  backdrop-filter: $overlay-backdrop-filter;
+  background: $overlay-background;
+  z-index: $z-index-overlay;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.ng-vibe-dialog-wrapper {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: $z-index-drawer;
+
+  .ng-vibe-dialog {
+    pointer-events: auto;
+    overflow: hidden;
+    box-shadow: $dialog-shadow;
+    background-color: $dialog-background;
+    position: absolute;
+    border-radius: $dialog-border-radius;
+
+    .dialog-content {
+      overflow: auto;
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+}
