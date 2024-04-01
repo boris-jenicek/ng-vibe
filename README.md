@@ -50,4 +50,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Boris Jenicek - [LinkedIn](https://www.linkedin.com/in/boris-jenicek/)
 
-Project Link: [https://github.com/costlydeveloper/ng-vibe](https://github.com/costlydeveloper/ng-vibe)
+Project Link: [https://github.com/boris-jenicek/ng-vibe](https://github.com/boris-jenicek/ng-vibe)

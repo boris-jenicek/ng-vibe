@@ -1,0 +1,12 @@
+<div class="flex justify-end p-2">
+	<div class="relative w-14 h-8 cursor-pointer" (click)="toggleTheme()">
+		<input type="checkbox" id="theme-toggle" class="sr-only"  />
+		<label for="theme-toggle" class="block bg-gray-600 w-14 h-8 rounded-full shadow-inner cursor-pointer">
+			<div class="dot z-10 absolute left-1 top-1 bg-white w-6 h-6 rounded-full shadow transform transition duration-300 ease-in-out" [style.transform]="isLightTheme ? 'translateX(100%)' : 'translateX(0)'" ></div>
+		</label>
+		<div class="sun-moon z-0 absolute inset-0 w-full h-full flex items-center px-1 transition-opacity duration-300 ease-in-out justify-between " >
+			<span class="text-gray-300 flex pl-0.5" [ngClass]="{'justify-start opacity-100': isLightTheme, 'justify-end opacity-0': !isLightTheme}">🌙</span>
+			<span class="text-yellow-500 flex pr-0.5" [ngClass]="{'justify-start opacity-100': !isLightTheme, 'justify-end opacity-0': isLightTheme}">☀️</span>
+		</div>
+	</div>
+</div>
