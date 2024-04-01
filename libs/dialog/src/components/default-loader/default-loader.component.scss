@@ -41,17 +41,17 @@ $loader-color: #ddd;
         linear-gradient($loader-color 66px, transparent 0);
       background-repeat: no-repeat;
       background-size: 75px 130px, 55px 56px, 160px 30px, 260px 20px, 290px 56px;
-      background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+      background-position: 0 0, 0 0, 70px 5px, 70px 38px, 0 66px;
       box-sizing: border-box;
       animation: animloader 1s linear infinite;
     }
 
     @keyframes animloader {
       0% {
-        background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+        background-position: 0 0, 0 0, 70px 5px, 70px 38px, 0 66px;
       }
       100% {
-        background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+        background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0 66px;
       }
     }
   }
