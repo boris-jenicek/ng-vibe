@@ -6,12 +6,8 @@ import { SidebarComponent } from './app-layout/sidebar/sidebar.component';
 @Component({
   standalone: true,
   imports: [RouterModule, HeaderComponent, SidebarComponent],
-  selector: 'ng-vibe-root',
+  selector: 'playground-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  ngOnInit() {
-    console.log('on init');
-  }
-}
+export class AppComponent {}

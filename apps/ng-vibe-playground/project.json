@@ -2,7 +2,7 @@
   "name": "ng-vibe-playground",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "ng-vibe",
+  "prefix": "playground",
   "sourceRoot": "apps/ng-vibe-playground/src",
   "tags": ["type:app"],
   "targets": {

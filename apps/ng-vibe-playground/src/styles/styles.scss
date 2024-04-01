@@ -1,14 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./ng-vibe-drawer";
+@import '../../../../libs/drawer/src/styles/styles';
+@import '../../../../libs/dialog/src/styles/styles';
 
 html,
 body {
   height: 100%;
 }
 body {
-  @apply bg-white text-black dark:bg-gray-800 dark:text-white;
+  @apply bg-white text-black dark:bg-gray-800 dark:text-gray-400;
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

@@ -4,13 +4,13 @@ import { ButtonComponent } from '@ng-vibe/button';
 import { DrawerRemoteControl } from '@ng-vibe/drawer';
 
 @Component({
-  selector: 'ng-vibe-dummy',
+  selector: 'playground-drawer-dummy',
   standalone: true,
   imports: [CommonModule, ButtonComponent],
-  templateUrl: './dummy.component.html',
-  styleUrl: './dummy.component.scss',
+  templateUrl: './drawer-dummy.component.html',
+  styleUrl: './drawer-dummy.component.scss',
 })
-export class DummyComponent {
+export class DrawerDummyComponent {
   drawerRemoteControl: DrawerRemoteControl = inject(DrawerRemoteControl);
 
   constructor() {

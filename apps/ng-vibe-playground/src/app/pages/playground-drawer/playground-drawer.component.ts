@@ -2,17 +2,17 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '@ng-vibe/button';
 import { DrawerInit, DrawerPosition, DrawerService } from '@ng-vibe/drawer';
-import { DummyComponent } from '../components/dummy.component';
+import { DrawerDummyComponent } from '../../components/drawer-dummy/drawer-dummy.component';
 
 @Component({
-  selector: 'ng-vibe-drawer',
+  selector: 'playground-drawer',
   standalone: true,
   imports: [CommonModule, ButtonComponent],
-  templateUrl: './drawer.component.html',
-  styleUrl: './drawer.component.scss',
+  templateUrl: './playground-drawer.component.html',
+  styleUrl: './playground-drawer.component.scss',
 })
-export class DrawerComponent {
-  private drawer: DrawerInit = new DrawerInit(DummyComponent);
+export class PlaygroundDrawerComponent {
+  private drawer: DrawerInit = new DrawerInit(DrawerDummyComponent);
   public drawerService: DrawerService = inject(DrawerService);
 
   constructor() {

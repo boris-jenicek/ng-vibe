@@ -12,10 +12,10 @@ import { IMenuItem, MenuItem } from '../menu-item/menu-item.model';
   imports: [RouterLink, RouterLinkActive, NgClass, MenuItemComponent],
 })
 export class SidebarComponent {
-  menuItems: IMenuItem[] = [this.getDashboardItem()];
+  menuItems: IMenuItem[] = [
+    new MenuItem('Drawer', true, 'drawer'),
+    new MenuItem('Dialog', true, 'dialog'),
+  ];
 
   menuType = (item: IMenuItem): IMenuItem => item;
-  getDashboardItem(): IMenuItem {
-    return new MenuItem('Drawer', true, 'drawer');
-  }
 }

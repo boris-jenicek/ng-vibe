@@ -1,10 +1,16 @@
 import { Route } from '@angular/router';
-import { DrawerComponent } from './pages/drawer.component';
+import { PlaygroundDialogComponent } from './pages/playground-dialog/playground-dialog.component';
+import { PlaygroundDrawerComponent } from './pages/playground-drawer/playground-drawer.component';
 
 export const appRoutes: Route[] = [
   {
     path: 'drawer',
-    component: DrawerComponent,
+    component: PlaygroundDrawerComponent,
+    children: [],
+  },
+  {
+    path: 'dialog',
+    component: PlaygroundDialogComponent,
     children: [],
   },
 ];
