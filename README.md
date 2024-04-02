@@ -6,7 +6,8 @@ Welcome to `ng-vibe`, a collection of Angular libraries designed to enhance your
 
 As of now, `ng-vibe` includes the following packages:
 
-- **@ng-vibe/drawer**: A dynamic drawer library for Angular 17+, enabling the creation of beautifully animated drawers that can be controlled from both parent and child components. Located in `libs/drawer`.
+- **@ng-vibe/drawer**: A dynamic drawer library for Angular 17+, enabling the creation of beautifully animated drawers that can be controlled from both parent and child components. For more details, visit [libs/drawer](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer), and [Npm link](https://www.npmjs.com/package/@ng-vibe/drawer).
+- **@ng-vibe/dialog**: A versatile dialog library for Angular 17+, allowing the creation and management of modals and pop-ups with ease. Designed for flexibility and integration in a variety of applications. For more details, visit [libs/dialog](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog), and [Npm link](https://www.npmjs.com/package/@ng-vibe/dialog).
 
 ## Getting Started
 
@@ -23,7 +24,7 @@ npm install
 To test the functionality of the `ng-vibe` packages and see them in action, you can run the playground application. This application is a great way to explore the capabilities of each package and how they can be utilized in your projects.
 
 ```bash
-npm run start:app
+npm start
 ```
 
 This command will start the playground application, where you can interact with the components and utilities provided by the `ng-vibe` packages.
