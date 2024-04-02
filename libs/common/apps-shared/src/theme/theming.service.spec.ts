@@ -47,11 +47,11 @@ describe('ThemeService', () => {
     expect(service.getCurrentTheme()).toBe('dark');
     expect(mockRenderer2.addClass).toHaveBeenCalledWith(
       document.documentElement,
-      'dark',
+      'dark'
     );
     expect(mockRenderer2.removeClass).toHaveBeenCalledWith(
       document.documentElement,
-      'light',
+      'light'
     );
   });
 
