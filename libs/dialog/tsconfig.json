@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": false,
     "target": "es2022",
     "useDefineForClassFields": false,
     "forceConsistentCasingInFileNames": true,

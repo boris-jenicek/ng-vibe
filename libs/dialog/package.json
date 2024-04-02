@@ -1,12 +1,31 @@
 {
   "name": "@ng-vibe/dialog",
   "version": "0.0.1",
+  "description": "A dynamic dialog library for Angular 17+, enabling the creation of beautifully animated dialogs with full control from parent and child components.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boris-jenicek/ng-vibe.git",
+    "directory": "libs/dialog"
+  },
+  "keywords": [
+    "angular",
+    "dialog",
+    "ui",
+    "angular-component",
+    "animation",
+    "modal",
+    "ui"
+  ],
+  "homepage": "https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog",
+  "author": "Boris Jenicek",
+  "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0"
+    "@angular/common": ">17.0.0",
+    "@angular/core": ">17.0.0",
+    "@angular/animations": ">17.0.0",
+    "rxjs": ">7.8.0",
+    "@angular/platform-browser": ">17.0.0"
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
+  "dependencies": {},
   "sideEffects": false
 }

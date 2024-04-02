@@ -22,6 +22,21 @@
       },
       "defaultConfiguration": "production"
     },
+    "scss-to-css": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/dialog"],
+      "options": {
+        "commands": [
+          {
+            "command": "sass libs/dialog/src/styles/styles.scss:dist/libs/dialog/styles/styles.css"
+          },
+          {
+            "command": "cp libs/dialog/src/styles/styles.scss dist/libs/dialog/styles/styles.scss"
+          }
+        ],
+        "parallel": false
+      }
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

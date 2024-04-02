@@ -1,11 +1,9 @@
 import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   inject,
-  Injector,
   Output,
   Type,
   ViewChild,
@@ -15,10 +13,11 @@ import {
   boxAnimations,
   fadeinOutAnimation,
   overlayAnimation,
-} from './animations';
-import { AppearanceAnimation, DisappearanceAnimation } from './enums';
-import { IDialogOptions } from './interfaces';
-import { DialogRemoteControl } from './models';
+} from '../../animations';
+import { AppearanceAnimation, DisappearanceAnimation } from '../../enums';
+import { IDialogOptions } from '../../interfaces';
+import { DialogRemoteControl } from '../../models';
+import { DialogComponentHelperService } from '../../services/dialog-component-helper.service';
 
 @Component({
   selector: 'ng-vibe-dialog',
@@ -26,6 +25,7 @@ import { DialogRemoteControl } from './models';
   imports: [CommonModule],
   templateUrl: './dialog.component.html',
   animations: [overlayAnimation, boxAnimations, fadeinOutAnimation],
+  providers: [DialogComponentHelperService],
 })
 export class DialogComponent implements AfterViewInit {
   @ViewChild('dialogContent', { read: ViewContainerRef })
@@ -43,7 +43,9 @@ export class DialogComponent implements AfterViewInit {
   private loaderComponentType?: Type<any>;
   private mainComponentType?: Type<any>;
   public dialogRemoteControl!: DialogRemoteControl;
-  private cd: ChangeDetectorRef = inject(ChangeDetectorRef);
+  private helper: DialogComponentHelperService = inject(
+    DialogComponentHelperService
+  );
 
   ngAfterViewInit(): void {
     this.overlayVisible = this.options.showOverlay;
@@ -53,10 +55,10 @@ export class DialogComponent implements AfterViewInit {
 
   public prepareComponentForLoad(
     component: Type<any>,
-    dialogRemoteControl: DialogRemoteControl
+    remoteControl: DialogRemoteControl
   ): void {
     this.mainComponentType = component;
-    this.dialogRemoteControl = dialogRemoteControl;
+    this.dialogRemoteControl = remoteControl;
     if (!this.loaderComponentType) {
       // If no loader, load the main component immediately
       this.loadComponent();
@@ -79,20 +81,12 @@ export class DialogComponent implements AfterViewInit {
   }
 
   private loadComponent(): void {
-    if (!this.dialogContent) return; // Guard condition
-
     const componentType = this.loaderComponentType || this.mainComponentType;
-    if (!componentType) return; // Guard condition
-
-    const injector = Injector.create({
-      providers: [
-        { provide: DialogRemoteControl, useValue: this.dialogRemoteControl },
-      ],
-    });
-
-    this.dialogContent.clear();
-    this.dialogContent.createComponent(componentType, { injector });
-    this.cd.detectChanges();
+    this.helper.loadComponent(
+      this.dialogContent,
+      this.dialogRemoteControl,
+      componentType
+    );
     this.contentAnimationState = 'enter';
   }
 
