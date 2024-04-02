@@ -1,4 +1,4 @@
-export { PublicDrawerService as DrawerService } from './public-drawer.service';
-export * from './models';
+export { PublicDrawerService as DrawerService } from './services/public-drawer.service';
+export * from './models/drawer.remote-control.model';
 export * from './enums/position.enum';
-export * from './provider';
+export * from './providers/drawer-provider';

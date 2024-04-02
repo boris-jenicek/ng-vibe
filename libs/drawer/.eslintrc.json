@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "x",
+            "prefix": "ng-vibe",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "x",
+            "prefix": "ng-vibe",
             "style": "kebab-case"
           }
         ]

@@ -5,26 +5,26 @@ export const DEFAULT_DRAWER_OPTIONS_LEFT: IDrawerOptions = {
   width: '30%',
   height: '100%',
   position: DrawerPosition.LEFT,
-  isOverlay: true,
+  showOverlay: true,
 };
 
 export const DEFAULT_DRAWER_OPTIONS_RIGHT: IDrawerOptions = {
   width: '30%',
   height: '100%',
   position: DrawerPosition.RIGHT,
-  isOverlay: true,
+  showOverlay: true,
 };
 
 export const DEFAULT_DRAWER_OPTIONS_TOP: IDrawerOptions = {
   width: '100%',
   height: '30%',
   position: DrawerPosition.TOP,
-  isOverlay: true,
+  showOverlay: true,
 };
 
 export const DEFAULT_DRAWER_OPTIONS_BOTTOM: IDrawerOptions = {
   width: '100%',
   height: '30%',
   position: DrawerPosition.BOTTOM,
-  isOverlay: true,
+  showOverlay: true,
 };

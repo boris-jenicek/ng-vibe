@@ -14,6 +14,7 @@
     "angular-component",
     "animation"
   ],
+  "homepage": "https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer",
   "author": "Boris Jenicek",
   "license": "MIT",
   "peerDependencies": {

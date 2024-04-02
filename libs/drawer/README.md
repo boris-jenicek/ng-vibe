@@ -9,9 +9,9 @@
 - Flexible positioning options (left, right, top, bottom) for drawer display.
 - Seamless integration with Angular 17+ applications.
 - Customization options to suit various needs.
-- Ability to control the drawer from within the child component via `DrawerRemoteControl`.
-- Optional payload sending and receiving for enhanced component interaction.
-- Comprehensive `DrawerService` for advanced drawer management.
+- Ability to control and manage the drawer directly from the Angular components via `DrawerRemoteControl`, including advanced functionalities like loader integration.
+- Comprehensive `DrawerService` for advanced drawer management, including methods to manage drawer states.
+- Featuring methods to interact with drawers programmatically, and enhance component interaction with optional payloads and loaders.
 
 ## Why
 
@@ -53,35 +53,55 @@ This package provides a straightforward, dynamic approach to incorporating drawe
    @import '@ng-vibe/drawer/styles/styles';
    ```
 
+### Advanced SCSS Usage
+
+For advanced users who prefer to have direct access to the SCSS source for more granular control over the styles, `@ng-vibe/drawer` provides a SCSS file that can be integrated into your project.
+
+1. Locate the SCSS file in the installed package directory:
+
+   ```
+   node_modules/@ng-vibe/drawer/styles/styles.scss
+   ```
+
+2. Copy this file into your project's desired location.
+
+3. Import the copied SCSS file into your project's main SCSS file to have direct access to its mixins and variables. This allows for deeper customization and integration with your existing styles:
+
+   ```scss
+   @import 'path/to/your/copied/styles.scss';
+   ```
+
+By integrating the SCSS file directly, you gain the flexibility to override variables, utilize mixins, and harness the full power of SCSS within the context of your Angular application's styling architecture. This method is ideal for developers looking to maintain a consistent theme or apply complex style customizations to the drawer components.
+
 ### Usage
 
 To use `@ng-vibe/drawer` in your Angular app:
 
 ```javascript
-import { DrawerInit, DrawerPosition } from '@ng-vibe/drawer';
+import {DrawerRemoteControl, DrawerPosition} from '@ng-vibe/drawer';
 
 export class AppComponent {
-  private drawer: DrawerInit = DrawerInit(DummyComponent);
+   private drawer: DrawerRemoteControl = DrawerRemoteControl(DialogDummyComponent);
 
-  openDrawer(optionalPayload) {
-    this.drawer.options = {
-      position: DrawerPosition.RIGHT, // Options: LEFT, RIGHT, TOP, BOTTOM
-      isOverlay: false,
-    };
-    this.drawer.openDrawer(optionalPayload).subscribe((resp) => {
-      console.log('Response from child component:', resp);
-    });
-  }
+   openDrawer(optionalPayload) {
+      this.drawer.options = {
+         position: DrawerPosition.RIGHT, // Options: LEFT, RIGHT, TOP, BOTTOM
+         showOverlay: true,
+      };
+      this.drawer.openDrawer(optionalPayload).subscribe((resp) => {
+         console.log('Response from child component:', resp);
+      });
+   }
 
-  closeDrawer() {
-    this.drawer.closeDrawer();
-  }
+   closeDrawer() {
+      this.drawer.closeDrawer();
+   }
 }
 ```
 
-#### Controlling the Drawer from a Child Component
+#### Enhanced Drawer Interaction with Loader
 
-Gain control over the drawer and interact with optional payloads within the child component using `DrawerRemoteControl`:
+Integrate a loading mechanism into the drawer with optional Angular component for loader customization:
 
 ```javascript
 import { DrawerRemoteControl, inject } from '@ng-vibe/drawer';
@@ -89,17 +109,22 @@ import { DrawerRemoteControl, inject } from '@ng-vibe/drawer';
 export class DummyComponent {
   drawerRemoteControl: DrawerRemoteControl = inject(DrawerRemoteControl);
 
-  constructor() {
-    console.log('Payload received:', this.drawerRemoteControl.payload);
+   openDrawer() {
+    this.drawerRemoteControl.withLoader();
+    //this.drawerRemoteControl.withLoader(MyCustomLoaderComponent); // Optional custom loader
+    this.drawerRemoteControl.openDrawer()
+    
+     // simulates async code
+     setTimeout(() => {
+        this.drawerRemoteControl.stopLoader(); // Call this to stop the loader and reveal the content
+     }, 2000);
   }
 
-  close(withPayload) {
-    this.drawerRemoteControl.closeDrawer(withPayload);
+  closeDrawer() {
+    this.drawerRemoteControl.closeDrawer();
   }
 }
 ```
-
-This approach allows for the sending of optional payloads between the parent and child components, enhancing the interaction capabilities. Subscription to responses from the child component is straightforward and automatically managed.
 
 ### Configuration Options
 
@@ -107,13 +132,43 @@ This approach allows for the sending of optional payloads between the parent and
 
 ```typescript
 export interface IDrawerOptions {
-  width?: string;
-  height?: string;
-  position?: DrawerPosition;
-  isOverlay?: boolean;
+  width: string;
+  height: string;
+  position: DrawerPosition;
+  showOverlay: boolean;
 }
 ```
 
 ### Advanced Drawer Management
 
-`@ng-vibe/drawer` includes a `DrawerService` for advanced management of drawer states, allowing for operations such as querying drawer states, obtaining specific drawer controls, and closing all drawers programmatically. This service offers a higher level of control for complex applications.
+`@ng-vibe/drawer` includes a `DrawerService` for advanced management of drawer states, offering methods for querying active drawers, obtaining drawer controls, and programmatically closing all drawers:
+
+```typescript
+class DrawerService {
+  /**
+   * An Observable that emits the count of active drawers by listening to state changes,
+   * calculating the total number of active drawers.
+   */
+  public activeDrawersCount$: Observable<number>;
+
+  /**
+   * Retrieves the RemoteControl object associated with a specific drawer ID.
+   * @param {string} id The unique identifier for the drawer.
+   * @returns {DrawerRemoteControl | undefined} The RemoteControl object, if found.
+   */
+  public getRemoteControl(id: string): DrawerRemoteControl | undefined;
+
+  /**
+   * Returns an Observable that emits the RemoteControl object for a given drawer ID,
+   * filtering out undefined states.
+   * @param {string} id The unique identifier for the drawer.
+   * @returns {Observable<DrawerRemoteControl | undefined>} An Observable emitting the RemoteControl object.
+   */
+  public selectRemoteControl$(id: string): Observable<DrawerRemoteControl | undefined>;
+
+  /**
+   * Closes all active drawers.
+   */
+  public closeAll(): void;
+}
+```

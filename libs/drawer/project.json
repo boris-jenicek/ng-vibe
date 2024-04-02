@@ -2,7 +2,7 @@
   "name": "drawer",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/drawer/src",
-  "prefix": "x",
+  "prefix": "ng-vibe",
   "tags": ["scope:lib"],
   "projectType": "library",
   "targets": {
@@ -29,6 +29,9 @@
         "commands": [
           {
             "command": "sass libs/drawer/src/styles/styles.scss:dist/libs/drawer/styles/styles.css"
+          },
+          {
+            "command": "cp libs/drawer/src/styles/styles.scss dist/libs/drawer/styles/styles.scss"
           }
         ],
         "parallel": false

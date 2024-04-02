@@ -2,11 +2,10 @@ $z-index-overlay: 9999;
 $z-index-drawer: 10000;
 $overlay-shade: black;
 $drawer-background: white;
-
 $overlay-backdrop-filter: blur(1px);
 $overlay-background: transparentize($drawer-background, 0.75);
 
-.overlay {
+.ng-vibe-drawer-overlay {
   backdrop-filter: $overlay-backdrop-filter;
   background: $overlay-background;
   bottom: 0;
@@ -17,8 +16,15 @@ $overlay-background: transparentize($drawer-background, 0.75);
   z-index: $z-index-overlay;
 }
 
-.drawer-wrapper {
+.ng-vibe-drawer-wrapper {
   background-color: $drawer-background;
   position: fixed;
   z-index: $z-index-drawer;
+  overflow: hidden;
+
+  .drawer-content {
+    overflow: auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
 }

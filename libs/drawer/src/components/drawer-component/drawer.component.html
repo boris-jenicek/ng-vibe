@@ -1,0 +1,14 @@
+@if (overlayVisible) {
+<div class="ng-vibe-drawer-overlay" @overlayAnimation></div>
+}
+<div
+  [@drawerAnimations]="animationState"
+  (@drawerAnimations.done)="onAnimationDone($event)"
+  (@drawerAnimations.start)="onAnimationStart($event)"
+  [ngStyle]="getDrawerStyles()"
+  class="ng-vibe-drawer-wrapper"
+>
+  <div class="drawer-content" [@fadeinOutAnimation]="contentAnimationState">
+    <ng-template #drawerContent></ng-template>
+  </div>
+</div>
