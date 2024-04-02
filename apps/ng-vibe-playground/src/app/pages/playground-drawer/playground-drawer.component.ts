@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '@ng-vibe/button';
-import { DrawerInit, DrawerPosition, DrawerService } from '@ng-vibe/drawer';
+import {
+  DrawerPosition,
+  DrawerRemoteControl,
+  DrawerService,
+} from '@ng-vibe/drawer';
 import { DrawerDummyComponent } from '../../components/drawer-dummy/drawer-dummy.component';
 
 @Component({
@@ -12,22 +16,33 @@ import { DrawerDummyComponent } from '../../components/drawer-dummy/drawer-dummy
   styleUrl: './playground-drawer.component.scss',
 })
 export class PlaygroundDrawerComponent {
-  private drawer: DrawerInit = new DrawerInit(DrawerDummyComponent);
+  private drawer: DrawerRemoteControl = new DrawerRemoteControl(
+    DrawerDummyComponent
+  );
   public drawerService: DrawerService = inject(DrawerService);
 
   constructor() {
-    this.drawerService.getDrawerState(this.drawer.id).subscribe((resp) => {
-      console.log('sub', resp);
-    });
+    /*  this.drawerService
+      .selectRemoteControl$(this.drawer.id)
+      .subscribe((resp) => {
+        console.log('sub', resp);
+      });*/
   }
   openDrawer() {
     this.drawer.options = {
       position: DrawerPosition.RIGHT,
-      isOverlay: false,
+      showOverlay: false,
+      // width: '100px',
     };
+    this.drawer.withLoader();
     this.drawer.openDrawer({ my: 'book' }).subscribe((resp) => {
       console.log('resp', resp);
     });
+
+    setTimeout(() => {
+      console.log('STOP LOADER');
+      this.drawer.stopLoader();
+    }, 2000);
   }
 
   closeDrawer() {

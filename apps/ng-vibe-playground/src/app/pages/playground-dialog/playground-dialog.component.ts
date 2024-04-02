@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '@ng-vibe/button';
-import { DialogRemoteControl } from '@ng-vibe/dialog';
+import { DialogRemoteControl, DialogService } from '@ng-vibe/dialog';
 import { DialogDummyComponent } from '../../components/dialog-dummy/dialog-dummy.component';
 
 @Component({
@@ -16,13 +16,35 @@ export class PlaygroundDialogComponent {
     DialogDummyComponent
   );
 
-  //public drawerService: DrawerService = inject(DrawerService);
+  public service: DialogService = inject(DialogService);
 
-  /*  constructor() {
-    this.drawerService.getDrawerState(this.drawer.id).subscribe((resp) => {
+  constructor() {
+    this.service.selectRemoteControl$(this.dialog.id).subscribe((resp) => {
       console.log('sub', resp);
     });
-  }*/
+
+    this.service.activeDialogsCount$.subscribe((resp) => {
+      console.log('sub', resp);
+    });
+
+    const dialog1: DialogRemoteControl = new DialogRemoteControl(
+      DialogDummyComponent
+    );
+    const dialog2: DialogRemoteControl = new DialogRemoteControl(
+      DialogDummyComponent
+    );
+    const dialog3: DialogRemoteControl = new DialogRemoteControl(
+      DialogDummyComponent
+    );
+
+    dialog1.openDialog();
+    dialog2.openDialog();
+    dialog3.openDialog();
+
+    setTimeout(() => {
+      this.service.closeAll();
+    }, 2000);
+  }
   openDialog() {
     this.dialog.options = {
       width: '700px',

@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "playground",
+            "prefix": ["playground", "ng-vibe", "app"],
             "style": "kebab-case"
           }
         ]

@@ -1,6 +1,6 @@
 import { NgIf } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ThemeToggleComponent } from '@ng-vibe/shared';
+import { ThemeToggleComponent } from '@ng-vibe/apps-shared';
 
 @Component({
   selector: 'ng-vibe-header',
