@@ -1,3 +1,15 @@
+## 0.3.0 (2024-04-02)
+
+
+### 🚀 Features
+
+- -add default loader -smooth animations
+
+
+### ❤️  Thank You
+
+- boris jenicek
+
 ## 0.2.0 (2024-03-28)
 
 
