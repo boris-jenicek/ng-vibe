@@ -1,0 +1,42 @@
+<div
+  [@boxAnimations]="boxAnimationState"
+  (@boxAnimations.done)="onAnimationDone($event)"
+  (@boxAnimations.start)="onAnimationStart($event)"
+  (mouseover)="mouseOver()"
+  (mouseout)="mouseOut()"
+  [className]="getTypeClasses()"
+>
+  <i
+    *ngIf="rc.options.showClose"
+    (click)="rc.closeToast()"
+    class="ng-vibe-close-icon"
+  ></i>
+
+  <div
+    class="toastify-content"
+    [attr.data-align]="rc.options.textAlign"
+    [attr.data-title]="rc.options.title.length < 30 ? '' : 'long-title'"
+    [@fadeinOutAnimation]="contentAnimationState"
+  >
+    <div class="toastify-title-wrapper" *ngIf="rc.options.title">
+      <div class="toastify-title-content">
+        <i [className]="getIconClasses()" *ngIf="hasIcon()"></i>
+        <span>{{ rc.options.title }}</span>
+      </div>
+    </div>
+    <div class="toastify-text-content" *ngIf="rc.options.text">
+      <span>{{ rc.options.text }} </span>
+    </div>
+    <div
+      class="progress-bar-container"
+      *ngIf="rc.options.progressBar !== 'disabled'"
+    >
+      <div
+        class="progress-bar"
+        [ngStyle]="{
+          width: getProgressPercentage() + '%'
+        }"
+      ></div>
+    </div>
+  </div>
+</div>

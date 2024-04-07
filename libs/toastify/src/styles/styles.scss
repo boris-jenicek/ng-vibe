@@ -1,0 +1,43 @@
+$toastify-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.1),
+  0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+$neutral: white;
+$success: #95cdce;
+$info: #aad7f1;
+$warning: #ffe7a0;
+$danger: #f8c5cc;
+$custom-one: #addb96;
+$custom-two: #eceaaf;
+$custom-three: #edc1fa;
+
+:root {
+  --toastify-shadow: #{$toastify-shadow};
+  --toastify-border-radius: 0.45rem;
+  --toastify-progress-bar-container: rgba(255, 255, 255, 0.3);
+
+  --toastify-bg-neutral: #{$neutral};
+  --toastify-bg-neutral_shade: #{darken($neutral, 30%)};
+  --toastify-bg-success: #{$success};
+  --toastify-bg-success_shade: #{darken($success, 30%)};
+  --toastify-bg-info: #{$info};
+  --toastify-bg-info_shade: #{darken($info, 30%)};
+  --toastify-bg-warning: #{$warning};
+  --toastify-bg-warning_shade: #{darken($warning, 35%)};
+  --toastify-bg-danger: #{$danger};
+  --toastify-bg-danger_shade: #{darken($danger, 20%)};
+  --toastify-bg-custom-one: #{$custom-one};
+  --toastify-bg-custom-one_shade: #{darken($custom-one, 30%)};
+  --toastify-bg-custom-two: #{$custom-two};
+  --toastify-bg-custom-two_shade: #{darken($custom-two, 30%)};
+  --toastify-bg-custom-three: #{$custom-three};
+  --toastify-bg-custom-three_shade: #{darken($custom-three, 30%)};
+
+  --toastify-text-neutral: #6c757d;
+  --toastify-text-success: #{darken($success, 50%)};
+  --toastify-text-info: #{darken($info, 50%)};
+  --toastify-text-warning: #{darken($warning, 60%)};
+  --toastify-text-danger: #{darken($danger, 60%)};
+  --toastify-text-custom-one: #{darken($custom-one, 50%)};
+  --toastify-text-custom-two: #{darken($custom-two, 50%)};
+  --toastify-text-custom-three: #{darken($custom-three, 50%)};
+}

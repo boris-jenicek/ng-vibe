@@ -1,0 +1,351 @@
+@keyframes slideDown {
+  from {
+    top: -20px;
+  }
+  to {
+    top: 0;
+  }
+}
+@keyframes slideDownFirst {
+  from {
+    top: -20px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.toast-slide-down-first {
+  position: relative;
+  animation: slideDownFirst 0.3s ease-out forwards;
+}
+
+.toast-slide-down-all {
+  position: relative;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.toastify-wrapper {
+  z-index: 999999999999;
+  position: fixed;
+  box-sizing: border-box;
+  flex-direction: column;
+
+  &.toastify-wrapper-top-right {
+    right: 30px;
+    top: 20px;
+    width: 300px;
+  }
+  &.toastify-wrapper-top-left {
+    left: 30px;
+    top: 15px;
+    width: 300px;
+  }
+  &.toastify-wrapper-top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+  }
+  &.toastify-wrapper-top-fullwidth {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 93vw;
+  }
+  &.toastify-wrapper-bottom-left {
+    left: 30px;
+    bottom: 20px;
+    width: 300px;
+  }
+  &.toastify-wrapper-bottom-right {
+    right: 30px;
+    bottom: 20px;
+    width: 300px;
+  }
+  &.toastify-wrapper-bottom-center {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    width: 300px;
+  }
+  &.toastify-wrapper-bottom-fullwidth {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    width: 93vw;
+  }
+
+  .ng-vibe-toastify {
+    box-shadow: var(--toastify-shadow);
+    background-color: var(--toastify-bg-neutral);
+    border-radius: var(--toastify-border-radius);
+    margin: 10px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+
+    &:hover .ng-vibe-close-icon {
+      opacity: 1;
+    }
+
+    .ng-vibe-close-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      padding: 14px;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        top: 7px;
+        left: 18px;
+      }
+
+      &::after {
+        content: '\d7';
+        position: absolute;
+        top: 10px;
+        left: -0;
+        right: 0;
+        bottom: 0;
+        font-size: 26px;
+        line-height: 0;
+        text-align: center;
+      }
+    }
+
+    .toastify-content {
+      overflow: auto;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 20px;
+      padding: 5px 0;
+
+      .progress-bar-container {
+        width: 100%;
+        position: relative;
+        bottom: -5px;
+        background: var(--toastify-progress-bar-container);
+        border-radius: 0 0 2px 2px;
+
+        .progress-bar {
+          height: 8px;
+          transition: none;
+          width: 0;
+        }
+      }
+
+      &[data-align='start'] {
+        align-items: flex-start;
+        text-align: left;
+        .toastify-icon-section {
+          padding: 0 10px 0 0;
+        }
+      }
+      &[data-align='center'] {
+        align-items: center;
+        text-align: center;
+        position: relative;
+        .toastify-title-content {
+          left: -18px;
+          position: relative;
+        }
+        &[data-title='long-title'] {
+          .toastify-title-content {
+            left: 0;
+            position: relative;
+          }
+        }
+      }
+
+      &[data-align='end'] {
+        align-items: flex-end;
+        text-align: right;
+        .toastify-title-content {
+          flex-direction: row-reverse;
+          .toastify-icon-section {
+            padding: 0 0 0 10px;
+          }
+        }
+      }
+
+      .toastify-title-content {
+        display: flex;
+        font-size: 0.93rem;
+        padding: 2px 14px 2px 14px;
+        width: 100%;
+        align-items: center;
+        font-weight: 500;
+
+        i {
+          font-size: 20px;
+          opacity: 0.6;
+          padding: 0 10px;
+          position: relative;
+          top: 2px;
+        }
+
+        span {
+          flex: 1;
+          text-align: inherit;
+        }
+      }
+
+      .toastify-text-content {
+        overflow: auto;
+        font-size: 0.87rem;
+        padding: 2px 15px 2px 14px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        span {
+          width: 100%;
+          text-align: inherit;
+        }
+      }
+    }
+
+    &.toastify-neutral {
+      background-color: var(--toastify-bg-neutral);
+      color: var(--toastify-text-neutral);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-neutral_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-neutral_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        border-bottom: 60px solid var(--toastify-bg-neutral_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-success {
+      background-color: var(--toastify-bg-success);
+      color: var(--toastify-text-success);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-success_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-success_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-success_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-info {
+      background-color: var(--toastify-bg-info);
+      color: var(--toastify-text-info);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-info_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-info_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-info_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-warning {
+      background-color: var(--toastify-bg-warning);
+      color: var(--toastify-text-warning);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-warning_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-warning_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-warning_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-danger {
+      background-color: var(--toastify-bg-danger);
+      color: var(--toastify-text-danger);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-danger_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-danger_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-danger_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-custom-one {
+      background-color: var(--toastify-bg-custom-one);
+      color: var(--toastify-text-custom-one);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-custom-one_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-custom-one_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-custom-one_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-custom-two {
+      background-color: var(--toastify-bg-custom-two);
+      color: var(--toastify-text-custom-two);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-custom-two_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-custom-two_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-custom-two_shade);
+        opacity: 0.5;
+      }
+    }
+    &.toastify-custom-three {
+      background-color: var(--toastify-bg-custom-three);
+      color: var(--toastify-text-custom-three);
+
+      .toastify-icon-section {
+        color: var(--toastify-bg-custom-three_shade);
+      }
+      .progress-bar {
+        background: var(--toastify-bg-custom-three_shade);
+        opacity: 0.6;
+      }
+      .ng-vibe-close-icon::before {
+        background: var(--toastify-bg-custom-three_shade);
+        opacity: 0.5;
+      }
+    }
+  }
+}
