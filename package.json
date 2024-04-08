@@ -4,11 +4,15 @@
   "license": "MIT",
   "scripts": {
     "start": "nx s ng-vibe-playground --no-cloud",
-    "lint": "nx run-many --target=lint --projects=dialog,drawer --no-cloud",
-    "test": "nx run-many --target=test --projects=dialog,drawer --no-cloud",
+    "lint": "nx run-many --target=lint --projects=dialog,drawer,toastify --no-cloud",
+    "test": "nx run-many --target=test --projects=dialog,drawer,toastify --no-cloud",
     "reliese": "nx release --skip-publish --dry-run",
     "drawer:build": "nx build drawer --no-cloud && nx run drawer:scss-to-css --no-cloud",
-    "drawer:publish": "npm publish dist/libs/drawer --access public --scope @ng-vibe"
+    "drawer:publish": "npm publish dist/libs/drawer --access public --scope @ng-vibe",
+    "dialog:build": "nx build dialog --no-cloud && nx run dialog:scss-to-css --no-cloud",
+    "dialog:publish": "npm publish dist/libs/dialog --access public --scope @ng-vibe",
+    "toastify:build": "nx build toastify --no-cloud && nx run toastify:scss-to-css --no-cloud",
+    "toastify:publish": "npm publish dist/libs/toastify --access public --scope @ng-vibe"
   },
   "private": false,
   "dependencies": {

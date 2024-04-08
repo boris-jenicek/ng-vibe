@@ -18,7 +18,8 @@
       "@ng-vibe/apps-shared": ["libs/common/apps-shared/src/index.ts"],
       "@ng-vibe/button": ["libs/common/button/src/index.ts"],
       "@ng-vibe/dialog": ["libs/dialog/src/index.ts"],
-      "@ng-vibe/drawer": ["libs/drawer/src/index.ts"]
+      "@ng-vibe/drawer": ["libs/drawer/src/index.ts"],
+      "@ng-vibe/toastify": ["libs/toastify/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
