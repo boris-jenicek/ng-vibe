@@ -15,6 +15,7 @@ export class SidebarComponent {
   menuItems: IMenuItem[] = [
     new MenuItem('Drawer', true, 'drawer'),
     new MenuItem('Dialog', true, 'dialog'),
+    new MenuItem('Toastify', true, 'toastify'),
   ];
 
   menuType = (item: IMenuItem): IMenuItem => item;

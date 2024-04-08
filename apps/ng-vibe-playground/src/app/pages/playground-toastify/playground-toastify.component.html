@@ -1,0 +1,15 @@
+<div class="flex flex-wrap justify-between mt-9">
+  <x-button (buttonClick)="openToast('neutral')">Neutral</x-button>
+  <x-button (buttonClick)="openToast('success')">Success</x-button>
+  <x-button (buttonClick)="openToast('info')">Info</x-button>
+  <x-button (buttonClick)="openToast('warning')">Warning</x-button>
+  <x-button (buttonClick)="openToast('danger')">Danger</x-button>
+  <x-button (buttonClick)="openToast('custom-one')">Type-One</x-button>
+  <x-button (buttonClick)="openToast('custom-two')">Type-Two</x-button>
+  <x-button (buttonClick)="openToast('custom-three')">Type-Three</x-button>
+</div>
+
+<div class="flex flex-wrap mt-9">
+  <x-button class="mr-5" (buttonClick)="closeLatest()">Close Latest</x-button>
+  <x-button (buttonClick)="closeAll()">Close All</x-button>
+</div>

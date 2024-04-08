@@ -2,6 +2,7 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideNgVibeDialog } from '@ng-vibe/dialog';
 import { provideNgVibeDrawer } from '@ng-vibe/drawer';
+import { provideNgVibeToastify } from '@ng-vibe/toastify';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -9,5 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideNgVibeDrawer(),
     provideNgVibeDialog(),
+    provideNgVibeToastify(),
   ],
 };
