@@ -11,7 +11,7 @@ import { Timer } from '@ng-vibe/timer';
   styleUrl: './playground-timer.component.scss',
 })
 export class PlaygroundTimerComponent {
-  timer = new Timer();
+  timer = new Timer(5000);
   isExpiredCallback = '';
 
   constructor() {
@@ -26,7 +26,7 @@ export class PlaygroundTimerComponent {
   // region *** Timer ***
 
   startTimer() {
-    this.timer.setMilliseconds(20000);
+    //this.timer.setMilliseconds();
     this.timer.start();
   }
 
