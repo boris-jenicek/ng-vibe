@@ -108,7 +108,7 @@ this.toast.openToast();
 | text              | Text content of the toast.                          | string          |
 | title             | Title of the toast.                                 | string          |
 
-## Contributing
+## Contributing ❤️
 
 We welcome contributions to make @ng-vibe/toastify even better! Whether you're fixing bugs, adding new features, or improving the documentation, your help is greatly appreciated. 🌟 Check out our [contribution guidelines](https://github.com/boris-jenicek/ng-vibe/blob/main/README.md) for more information.
 
