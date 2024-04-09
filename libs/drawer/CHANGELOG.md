@@ -1,3 +1,15 @@
+## 0.3.1 (2024-04-09)
+
+
+### 🩹 Fixes
+
+- fadein animation
+
+
+### ❤️  Thank You
+
+- boris jenicek
+
 ## 0.3.0 (2024-04-02)
 
 
