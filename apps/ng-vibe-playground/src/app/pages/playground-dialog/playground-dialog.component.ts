@@ -26,24 +26,6 @@ export class PlaygroundDialogComponent {
     this.service.activeDialogsCount$.subscribe((resp) => {
       console.log('sub', resp);
     });
-
-    const dialog1: DialogRemoteControl = new DialogRemoteControl(
-      DialogDummyComponent
-    );
-    const dialog2: DialogRemoteControl = new DialogRemoteControl(
-      DialogDummyComponent
-    );
-    const dialog3: DialogRemoteControl = new DialogRemoteControl(
-      DialogDummyComponent
-    );
-
-    dialog1.openDialog();
-    dialog2.openDialog();
-    dialog3.openDialog();
-
-    setTimeout(() => {
-      this.service.closeAll();
-    }, 2000);
   }
   openDialog() {
     this.dialog.options = {

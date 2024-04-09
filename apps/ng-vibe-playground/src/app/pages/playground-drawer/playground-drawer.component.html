@@ -1,2 +1,21 @@
-<x-button cssClass="mt-9" (buttonClick)="openDrawer()">Open Drawer</x-button>
-<x-button cssClass="mt-9" (buttonClick)="closeDrawer()">Close Drawer</x-button>
+<div class="flex flex-wrap justify-between mt-9">
+  <x-button (buttonClick)="openDrawer()">Open Drawer</x-button>
+</div>
+<div class="flex flex-wrap justify-between mt-9">
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('top')"
+    >Top</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('right')"
+    >Right</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('bottom')"
+    >Bottom</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('left')"
+    >Left</x-button
+  >
+</div>
+<div class="flex flex-wrap justify-between mt-9">
+  <x-button (buttonClick)="setLoader(true)">With loader</x-button>
+  <x-button (buttonClick)="setLoader(false)">Without loader</x-button>
+</div>

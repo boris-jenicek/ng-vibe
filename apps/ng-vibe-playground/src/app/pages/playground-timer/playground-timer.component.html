@@ -1,0 +1,26 @@
+<div class="container mx-auto py-5">
+  <h3>Timer</h3>
+  <div class="flex flex-wrap justify-between mt-9">
+    <x-button (buttonClick)="startTimer()">Start</x-button>
+    <x-button (buttonClick)="stopTimer()">Stop</x-button>
+    <x-button (buttonClick)="pauseTimer()">Pause</x-button>
+    <x-button (buttonClick)="resumeTimer()">Resume</x-button>
+    <x-button (buttonClick)="resetTimer()">Reset</x-button>
+  </div>
+
+  <div class="flex flex-wrap mt-9">
+    Timer is set to: {{ timer.getInitialTime() }}s
+  </div>
+
+  <div class="flex flex-wrap mt-9">Progress: {{ timer.getProgress() }}%</div>
+  <div class="flex flex-wrap mt-9">
+    Remaining percentage: {{ timer.getRemainingPercentage() }}%
+  </div>
+  <div class="flex flex-wrap mt-9">
+    Remaining milliseconds: {{ timer.getRemainingTime('milliseconds') }}
+  </div>
+  <div class="flex flex-wrap mt-9">
+    Remaining seconds: {{ timer.getRemainingTime() }}
+  </div>
+  <div class="flex flex-wrap mt-9">Callback: {{ isExpiredCallback }}</div>
+</div>

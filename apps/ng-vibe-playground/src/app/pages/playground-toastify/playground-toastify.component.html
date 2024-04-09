@@ -8,6 +8,34 @@
   <x-button (buttonClick)="openToast('custom-two')">Type-Two</x-button>
   <x-button (buttonClick)="openToast('custom-three')">Type-Three</x-button>
 </div>
+<div class="flex flex-wrap justify-between mt-9">
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('top-left')"
+    >Top left</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('top-center')"
+    >Top center</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('top-right')"
+    >Top right</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('top-fullwidth')"
+    >Top fullwidth</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('bottom-left')"
+    >Bottom left</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('bottom-center')"
+    >Bottom center</x-button
+  >
+  <x-button buttonType="second-btn" (buttonClick)="setPosition('bottom-right')"
+    >Bottom right</x-button
+  >
+  <x-button
+    buttonType="second-btn"
+    (buttonClick)="setPosition('bottom-fullwidth')"
+    >Bottom fullwidth</x-button
+  >
+</div>
 
 <div class="flex flex-wrap mt-9">
   <x-button class="mr-5" (buttonClick)="closeLatest()">Close Latest</x-button>

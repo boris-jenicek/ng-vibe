@@ -16,10 +16,9 @@ import { DrawerDummyComponent } from '../../components/drawer-dummy/drawer-dummy
   styleUrl: './playground-drawer.component.scss',
 })
 export class PlaygroundDrawerComponent {
-  private drawer: DrawerRemoteControl = new DrawerRemoteControl(
-    DrawerDummyComponent
-  );
   public drawerService: DrawerService = inject(DrawerService);
+  private position: DrawerPosition = DrawerPosition.RIGHT;
+  private loader = true;
 
   constructor() {
     /*  this.drawerService
@@ -29,23 +28,27 @@ export class PlaygroundDrawerComponent {
       });*/
   }
   openDrawer() {
-    this.drawer.options = {
-      position: DrawerPosition.RIGHT,
-      showOverlay: false,
-      // width: '100px',
+    const drawer = new DrawerRemoteControl(DrawerDummyComponent);
+    drawer.options = {
+      position: this.position,
     };
-    this.drawer.withLoader();
-    this.drawer.openDrawer({ my: 'book' }).subscribe((resp) => {
+    if (this.loader) {
+      drawer.withLoader();
+    }
+    drawer.openDrawer({ my: 'book' }).subscribe((resp) => {
       console.log('resp', resp);
     });
 
     setTimeout(() => {
-      console.log('STOP LOADER');
-      this.drawer.stopLoader();
-    }, 2000);
+      drawer.stopLoader();
+    }, 500);
   }
 
-  closeDrawer() {
-    this.drawer.closeDrawer();
+  setPosition(position: DrawerPosition | string) {
+    this.position = position as DrawerPosition;
+  }
+
+  setLoader(loader: boolean) {
+    this.loader = loader;
   }
 }

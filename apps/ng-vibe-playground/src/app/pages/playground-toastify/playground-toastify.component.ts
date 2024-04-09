@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ButtonComponent } from '@ng-vibe/button';
 import {
+  AppearanceAnimation,
   ProgressBar,
   TextAlignEnum,
   ToastifyRemoteControl,
@@ -9,7 +10,6 @@ import {
   ToastPosition,
   ToastTypeEnum,
 } from '@ng-vibe/toastify';
-import { AppearanceAnimation } from '../../../../../../libs/toastify/src/enums';
 
 @Component({
   selector: 'playground-toastify',
@@ -23,7 +23,7 @@ export class PlaygroundToastifyComponent {
   private toast: ToastifyRemoteControl = new ToastifyRemoteControl();
 
   public service: ToastifyService = inject(ToastifyService);
-
+  private position: ToastPosition = ToastPosition.TOP_LEFT;
   constructor() {
     this.service.selectRemoteControl$(this.toast.id).subscribe((resp) => {
       setTimeout(() => {
@@ -53,13 +53,17 @@ export class PlaygroundToastifyComponent {
       title: 'Title',
       autoCloseDuration: 3000,
       layoutType: type as ToastTypeEnum,
-      position: ToastPosition.TOP_LEFT,
+      position: this.position,
       progressBar: ProgressBar.DECREASE,
       textAlign: TextAlignEnum.START,
       animationIn: AppearanceAnimation.BOUNCE_IN,
     };
 
     this.toasts[position - 1].openToast('Async job done! 🍄');
+  }
+
+  setPosition(position: ToastPosition | string) {
+    this.position = position as ToastPosition;
   }
 
   closeLatest() {
