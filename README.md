@@ -23,6 +23,8 @@ Explore the `ng-vibe` collection, each library innovatively conceived for Angula
 - ### **[@ng-vibe/toastify](https://www.npmjs.com/package/@ng-vibe/toastify)**
   **Fluid Toast Notifications:** Generate attractive, customizable toast messages in multiple screen positions. Ideal for dynamic feedback and alerts. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/toastify)
 
+- ### **[@ng-vibe/timer](https://www.npmjs.com/package/@ng-vibe/timer)**
+  **Precise Timer Management:** Equip your Angular applications with a comprehensive timer library for handling and managing time efficiently. Perfect for adding countdowns, stopwatches, or any time-sensitive features. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/timer)
 
 
 ## Contributing  ❤️
