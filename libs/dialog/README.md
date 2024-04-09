@@ -1,7 +1,17 @@
 [available on npmjs](https://www.npmjs.com/package/@ng-vibe/dialog)
-# @ng-vibe/dialog
+<h1 align="center">@ng-vibe/dialog</h1>
 
-`@ng-vibe/dialog` is an advanced dialog management package for Angular 17+ applications, designed to create and manage dialogs with extensive customization and animation options. This package allows developers to effortlessly generate dialogs that can be configured with a wide range of animations, dimensions, and overlay options, providing a rich user experience without the need for manual HTML and CSS coding.
+<p align="center">
+  <b>Contributors are welcomed ❤️ </b></br>
+</p>
+Elevate your Angular 17+ applications with dynamic, customizable dialogs using @ng-vibe/dialog. This library allows you to smoothly create and manage dialog components, offering extensive configuration options for dimensions, animations, overlays, and more. Initiate and control dialogs entirely through TypeScript, eliminating the need for HTML selectors and enhancing their integration into your Angular applications.
+
+
+[Play with code at Stackblitz](https://stackblitz.com/edit/ng-vibe-toastify-wfnjsx?file=src%2Fapp%2Fdialog%2Fdialog.component.ts)
+
+[![@ng-vibe/drawer](https://raw.githubusercontent.com/boris-jenicek/ng-vibe/master/promo/dialog/dialog-demo.gif)](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog)
+
+
 
 ## Features
 
@@ -16,7 +26,7 @@
 
 ## Why
 
-This package offers a powerful, dynamic way to include dialogs in Angular applications, improving the user interface and experience with minimal coding effort and maximum flexibility. It provides developers with the tools to create highly interactive and customizable dialogs that can enhance the engagement and usability of their applications.
+@ng-vibe/dialog enhances Angular applications by offering a powerful, dynamic means to include highly interactive and customizable dialogs. It aids in enriching user interfaces and experiences with minimal coding effort, granting developers the flexibility to craft engaging and responsive modals and pop-ups.
 
 ## Getting Started
 
@@ -53,25 +63,6 @@ This package offers a powerful, dynamic way to include dialogs in Angular applic
    ```scss
    @import '@ng-vibe/dialog/styles/styles';
    ```
-### Advanced SCSS Usage
-
-For advanced users who prefer to have direct access to the SCSS source for more granular control over the styles, `@ng-vibe/dialog` provides a SCSS file that can be integrated into your project.
-
-1. Locate the SCSS file in the installed package directory:
-
-   ```
-   node_modules/@ng-vibe/dialog/styles/styles.scss
-   ```
-
-2. Copy this file into your project's desired location.
-
-3. Import the copied SCSS file into your project's main SCSS file to have direct access to its mixins and variables. This allows for deeper customization and integration with your existing styles:
-
-   ```scss
-   @import 'path/to/your/copied/styles.scss';
-   ```
-
-By integrating the SCSS file directly, you gain the flexibility to override variables, utilize mixins, and harness the full power of SCSS within the context of your Angular application's styling architecture. This method is ideal for developers looking to maintain a consistent theme or apply complex style customizations to the dialog components.
 
 ### Usage
 
@@ -131,22 +122,21 @@ export class DummyComponent {
 
 ### Configuration Options
 
-`@ng-vibe/dialog` offers a comprehensive set of options to customize the dialog behavior and appearance:
+Dialogs can be finely tuned with various options for a personalized appearance and behavior. Here's a table summarizing the configuration options available:
 
-```typescript
-export interface IDialogOptions {
-  width: string;
-  height: string;
-  minWidth: string;
-  maxWidth: string;
-  minHeight: string;
-  maxHeight: string;
-  fullScreen: boolean;
-  showOverlay: boolean;
-  animationIn: AppearanceAnimation;
-  animationOut: DisappearanceAnimation;
-}
-```
+| Option          | Description                                       | Type                  |
+|-----------------|---------------------------------------------------|-----------------------|
+| `width`         | Set the dialog width                              | `string`              |
+| `height`        | Set the dialog height                             | `string`              |
+| `minWidth`      | Minimum width of the dialog                       | `string`              |
+| `maxWidth`      | Maximum width the dialog can expand to            | `string`              |
+| `minHeight`     | Minimum height of the dialog                      | `string`              |
+| `maxHeight`     | Maximum height the dialog can expand to           | `string`              |
+| `fullScreen`    | Whether the dialog should be displayed full-screen| `boolean`             |
+| `showOverlay`   | Whether to show an overlay behind the dialog      | `boolean`             |
+| `animationIn`   | Entrance animation                                | `AppearanceAnimation` |
+| `animationOut`  | Exit animation                                    | `DisappearanceAnimation` |
+
 
 ### Advanced Dialog Management
 
@@ -181,3 +171,10 @@ class DialogService {
   public closeAll(): void;
 }
 ```
+## Contributing ❤️
+
+We welcome contributions to make @ng-vibe/dialog even better! Whether you're fixing bugs, adding new features, or improving the documentation, your help is greatly appreciated. 🌟 Check out our [contribution guidelines](https://github.com/boris-jenicek/ng-vibe/blob/main/README.md) for more information.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/boris-jenicek/ng-vibe/blob/main/LICENSE) file for details.
