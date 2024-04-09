@@ -110,8 +110,8 @@ this.toast.openToast();
 
 ## Contributing
 
-We welcome contributions to make @ng-vibe/toastify even better! Whether you're fixing bugs, adding new features, or improving the documentation, your help is greatly appreciated. 🌟 Check out our [contribution guidelines](CONTRIBUTING.md) for more information.
+We welcome contributions to make @ng-vibe/toastify even better! Whether you're fixing bugs, adding new features, or improving the documentation, your help is greatly appreciated. 🌟 Check out our [contribution guidelines](https://github.com/boris-jenicek/ng-vibe/blob/main/README.md) for more information.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/boris-jenicek/ng-vibe/blob/main/LICENSE) file for details.
