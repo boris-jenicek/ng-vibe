@@ -1,7 +1,17 @@
 [available on npmjs](https://www.npmjs.com/package/@ng-vibe/drawer)
-# @ng-vibe/drawer
+<h1 align="center">@ng-vibe/drawer</h1>
 
-`@ng-vibe/drawer` is a dynamic drawer creation package for Angular 17+ applications, enabling the embedding of Angular components into beautifully animated drawers. These drawers can be configured to appear from the left, right, top, or bottom of the viewport without the need for HTML invocation, facilitating a smoother development experience.
+<p align="center">
+  <b>Contributors are welcomed ❤️ </b></br>
+</p>
+
+Elevate your Angular 17+ applications with fluid, customizable drawers using @ng-vibe/drawer. This library allows you to dynamically generate and manage drawer components that can slide in from any edge of the viewport—top, bottom, left, or right, offering a configuration options. Initiate and control drawers entirely through TypeScript, eliminating the need for HTML selectors and streamlining their integration into your Angular applications.
+
+
+[Play with code at Stackblitz](https://stackblitz.com/edit/ng-vibe-toastify-egusyn?file=src%2Fapp%2Fdrawer%2Fdrawer.component.ts)
+
+[![@ng-vibe/drawer](https://raw.githubusercontent.com/boris-jenicek/ng-vibe/master/promo/drawer/drawer-demo.gif)](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer)
+
 
 ## Features
 
@@ -53,26 +63,6 @@ This package provides a straightforward, dynamic approach to incorporating drawe
    @import '@ng-vibe/drawer/styles/styles';
    ```
 
-### Advanced SCSS Usage
-
-For advanced users who prefer to have direct access to the SCSS source for more granular control over the styles, `@ng-vibe/drawer` provides a SCSS file that can be integrated into your project.
-
-1. Locate the SCSS file in the installed package directory:
-
-   ```
-   node_modules/@ng-vibe/drawer/styles/styles.scss
-   ```
-
-2. Copy this file into your project's desired location.
-
-3. Import the copied SCSS file into your project's main SCSS file to have direct access to its mixins and variables. This allows for deeper customization and integration with your existing styles:
-
-   ```scss
-   @import 'path/to/your/copied/styles.scss';
-   ```
-
-By integrating the SCSS file directly, you gain the flexibility to override variables, utilize mixins, and harness the full power of SCSS within the context of your Angular application's styling architecture. This method is ideal for developers looking to maintain a consistent theme or apply complex style customizations to the drawer components.
-
 ### Usage
 
 To use `@ng-vibe/drawer` in your Angular app:
@@ -116,6 +106,7 @@ export class DummyComponent {
     
      // simulates async code
      setTimeout(() => {
+         // Can be called directly from the child component
         this.drawerRemoteControl.stopLoader(); // Call this to stop the loader and reveal the content
      }, 2000);
   }
@@ -138,6 +129,17 @@ export interface IDrawerOptions {
   showOverlay: boolean;
 }
 ```
+### Configuration Options
+
+`@ng-vibe/drawer` provides a set of configurable options to customize the drawer behavior:
+
+| Option        | Description                            | Type                  |
+|---------------|----------------------------------------|-----------------------|
+| width         | The width of the drawer.               | `string`              |
+| height        | The height of the drawer.              | `string`              |
+| position      | The position of the drawer.            | `DrawerPosition`      |
+| showOverlay   | Whether to show an overlay.            | `boolean`             |
+
 
 ### Advanced Drawer Management
 
@@ -172,3 +174,10 @@ class DrawerService {
   public closeAll(): void;
 }
 ```
+## Contributing ❤️
+
+We welcome contributions to make @ng-vibe/drawer even better! Whether you're fixing bugs, adding new features, or improving the documentation, your help is greatly appreciated. 🌟 Check out our [contribution guidelines](https://github.com/boris-jenicek/ng-vibe/blob/main/README.md) for more information.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/boris-jenicek/ng-vibe/blob/main/LICENSE) file for details.
