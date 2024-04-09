@@ -1,6 +1,6 @@
 {
   "name": "@ng-vibe/dialog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A dynamic dialog library for Angular 17+, enabling the creation of beautifully animated dialogs with full control from parent and child components.",
   "repository": {
     "type": "git",
