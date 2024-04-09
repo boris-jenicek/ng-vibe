@@ -64,7 +64,7 @@ export class DrawerComponent implements AfterViewInit {
       setTimeout(() => {
         this.loaderComponentType = undefined; // Clear loader component
         this.loadComponent(); // Load main component
-      }, 300);
+      }, 400);
     }
   }
 
@@ -74,12 +74,12 @@ export class DrawerComponent implements AfterViewInit {
 
   private loadComponent(): void {
     const componentType = this.loaderComponentType || this.mainComponentType;
+    this.contentAnimationState = 'enter';
     this.helper.loadComponent(
       this.drawerContent,
       this.drawerRemoteControl,
       componentType
     );
-    this.contentAnimationState = 'enter';
   }
 
   onAnimationDone(event: any) {

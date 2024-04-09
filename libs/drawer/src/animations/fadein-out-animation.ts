@@ -19,14 +19,14 @@ export const fadeinOutAnimation: AnimationTriggerMetadata = trigger(
     transition('* => enter', [
       style({ opacity: 0 }),
       group([
-        animate('400ms ease-in', style({ opacity: 1 })),
+        animate('300ms ease-in', style({ opacity: 1 })),
         query('@*', animateChild(), { optional: true }),
       ]),
     ]),
     transition('enter => leave', [
       group([
         query('@*', animateChild(), { optional: true }),
-        animate('400ms ease-out', style({ opacity: 0 })),
+        animate('300ms ease-out', style({ opacity: 0 })),
       ]),
     ]),
   ]

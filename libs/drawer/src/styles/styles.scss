@@ -1,25 +1,27 @@
-$z-index-overlay: 9999;
-$z-index-drawer: 10000;
-$overlay-shade: black;
-$drawer-background: white;
-$overlay-backdrop-filter: blur(1px);
-$overlay-background: transparentize($drawer-background, 0.75);
+:root {
+  --drawer-background: #f5f5f5;
+  --drawer-overlay-background: #{transparentize(black, 0.75)};
+  --drawer-overlay-backdrop-filter: blur(1px);
+  --drawer-default-loader-color: #6c757d;
+  --drawer-z-index-overlay: 9999;
+  --drawer-z-index-drawer: 10000;
+}
 
 .ng-vibe-drawer-overlay {
-  backdrop-filter: $overlay-backdrop-filter;
-  background: $overlay-background;
+  backdrop-filter: var(--drawer-overlay-backdrop-filter);
+  background: var(--drawer-overlay-background);
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: $z-index-overlay;
+  z-index: var(--drawer-z-index-overlay);
 }
 
 .ng-vibe-drawer-wrapper {
-  background-color: $drawer-background;
+  background-color: var(--drawer-background);
   position: fixed;
-  z-index: $z-index-drawer;
+  z-index: var(--drawer-z-index-drawer);
   overflow: hidden;
 
   .drawer-content {
