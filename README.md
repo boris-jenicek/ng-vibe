@@ -1,13 +1,12 @@
-<h1 align="center">ng-vibe 🏝️</h1>
+<h1 align="center">Ng-vibe 🏝️</h1>
 
 <p align="center">
-  <b>Welcome to ng-vibe, </b></br>
+  <b>Welcome to ng-vibe, a collection of Angular libraries</b></br>
 </p>
 
- a collection of Angular libraries designed to enhance your application development experience. Developed with Nx, `ng-vibe` aims to provide a suite of utilities and UI components that are easily integrated into Angular projects.
+Developed with Nx, `ng-vibe` aims to provide a suite of utilities and UI components that are easily integrated into Angular projects.
 
-## Available Packages in ng-vibe
-
+## Available Packages
 
 Explore the `ng-vibe` collection, each library innovatively conceived for Angular 17+, designed to enhance your application's interactivity and aesthetic:
 
