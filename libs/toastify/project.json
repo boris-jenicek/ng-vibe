@@ -28,10 +28,10 @@
       "options": {
         "commands": [
           {
-            "command": "sass libs/dialog/src/styles/styles.scss:dist/libs/toastify/styles/styles.css"
+            "command": "sass libs/toastify/src/styles/styles.scss:dist/libs/toastify/styles/styles.css"
           },
           {
-            "command": "cp libs/dialog/src/styles/styles.scss dist/libs/toastify/styles/styles.scss"
+            "command": "cp libs/toastify/src/styles/styles.scss dist/libs/toastify/styles/styles.scss"
           }
         ],
         "parallel": false
