@@ -1,6 +1,6 @@
 {
   "name": "@ng-vibe/toastify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A comprehensive library for Angular 17+, designed for generating various fluid and aesthetically pleasing toast notifications with extensive configuration options.",
   "repository": {
     "type": "git",
