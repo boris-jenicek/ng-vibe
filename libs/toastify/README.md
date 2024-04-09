@@ -1,3 +1,5 @@
+[Available on npmjs](https://www.npmjs.com/package/@ng-vibe/toastify)
+
 <h1 align="center">@ng-vibe/toastify</h1>
 
 <p align="center">
@@ -7,7 +9,9 @@
 
 Elevate your Angular 17+ applications with fluid, customizable toast messages using @ng-vibe/toastify. This library enables you to create various toast messages that can be positioned anywhere on the screen, offering extensive configuration options to tailor each toast to your needs. Initialize through TypeScript without the need for HTML selectors for a fluid integration into your project.
 
-[Available on npmjs](https://www.npmjs.com/package/@ng-vibe/toastify)
+
+
+[Play with code at Stackblitz](https://stackblitz.com/edit/ng-vibe-toastify?file=src%2Fapp%2Ftoastify%2Ftoastify.component.ts)
 
 [![@ng-vibe/toastify](https://raw.githubusercontent.com/boris-jenicek/ng-vibe/master/promo/tostify/tostify-demo.gif)](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/toastify)
 
