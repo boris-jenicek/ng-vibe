@@ -1,13 +1,44 @@
-# ng-vibe
+<h1 align="center">ng-vibe</h1>
 
-Welcome to `ng-vibe`, a collection of Angular libraries designed to enhance your application development experience. Developed with Nx, `ng-vibe` aims to provide a suite of utilities and UI components that are easily integrated into Angular projects.
+<p align="center">
+  <b>Welcome to ng-vibe, </b></br>
+</p>
+
+ a collection of Angular libraries designed to enhance your application development experience. Developed with Nx, `ng-vibe` aims to provide a suite of utilities and UI components that are easily integrated into Angular projects.
 
 ## Packages
 
-As of now, `ng-vibe` includes the following packages:
+## Available Packages in ng-vibe
 
-- **@ng-vibe/drawer**: A dynamic drawer library for Angular 17+, enabling the creation of beautifully animated drawers that can be controlled from both parent and child components. For more details, visit [libs/drawer](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer), and [Npm link](https://www.npmjs.com/package/@ng-vibe/drawer).
-- **@ng-vibe/dialog**: A versatile dialog library for Angular 17+, allowing the creation and management of modals and pop-ups with ease. Designed for flexibility and integration in a variety of applications. For more details, visit [libs/dialog](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog), and [Npm link](https://www.npmjs.com/package/@ng-vibe/dialog).
+## ng-vibe Package Highlights
+
+Explore the `ng-vibe` collection, each library innovatively conceived for Angular 17+, designed to enhance your application's interactivity and aesthetic:
+
+- ### **[@ng-vibe/drawer](https://www.npmjs.com/package/@ng-vibe/drawer)**
+  **Dynamic Drawer Component:** Seamlessly integrate animated side panels. Perfect for enriching UI with accessible and interactive drawers. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer)
+
+- ### **[@ng-vibe/dialog](https://www.npmjs.com/package/@ng-vibe/dialog)**
+  **Versatile Dialog Management:** Create and manage modals and pop-ups effortlessly. Offers flexibility for various use cases. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog)
+
+- ### **[@ng-vibe/toastify](https://www.npmjs.com/package/@ng-vibe/toastify)**
+  **Fluid Toast Notifications:** Generate attractive, customizable toast messages in multiple screen positions. Ideal for dynamic feedback and alerts. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/toastify)
+
+
+
+## Contributing  ❤️
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make to `ng-vibe` are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/amazing-feature`)
+3. Commit your Changes (`git commit -m 'feat: some amazing feature'`)
+4. Push to the Branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 
 ## Getting Started
 
@@ -29,19 +60,6 @@ npm start
 
 This command will start the playground application, where you can interact with the components and utilities provided by the `ng-vibe` packages.
 
-## Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make to `ng-vibe` are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/amazing-feature`)
-3. Commit your Changes (`git commit -m 'feat: some amazing feature'`)
-4. Push to the Branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
