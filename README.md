@@ -1,10 +1,17 @@
-<h1 align="center">Ng-vibe 🏝️</h1>
+<h1 align="center">@ng-vibe </h1>
 
 <p align="center">
-  <b>Welcome to ng-vibe, a collection of Angular libraries</b></br>
+ <i> <b>Hello, Angular enthusiasts! </b>  I'm Boris Jenicek, coming straight to you with some exciting news from my digital workshop. Excited to share that a new series of open-source libraries, ng-vibe, is now available.</i> 
 </p>
 
-Developed with Nx, `ng-vibe` aims to provide a suite of utilities and UI components that are easily integrated into Angular projects.
+
+![@ng-vibe](https://raw.githubusercontent.com/boris-jenicek/ng-vibe/master/promo/ng-vibe/ng-vibe-1.png)
+
+
+<p align="center">
+Designed for Angular 17+, these tools are here to enhance your development process with dynamic and efficient solutions. Here's a quick overview:</br>
+</p>
+
 
 ## Available Packages
 

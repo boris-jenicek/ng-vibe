@@ -21,7 +21,7 @@ export class ButtonComponent {
 
   get buildButtonCssString(): string {
     let css =
-      'my-4 w-full text-white  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center ';
+      'my-4 w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center ';
 
     if (this.cssClass) {
       css += this.cssClass;
