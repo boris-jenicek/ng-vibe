@@ -12,7 +12,9 @@
     "dialog:build": "nx build dialog --no-cloud && nx run dialog:scss-to-css --no-cloud",
     "dialog:publish": "npm publish dist/libs/dialog --access public --scope @ng-vibe",
     "toastify:build": "nx build toastify --no-cloud && nx run toastify:scss-to-css --no-cloud",
-    "toastify:publish": "npm publish dist/libs/toastify --access public --scope @ng-vibe"
+    "toastify:publish": "npm publish dist/libs/toastify --access public --scope @ng-vibe",
+    "timer:build": "nx build timer --no-cloud ",
+    "timer:publish": "npm publish dist/libs/timer --access public --scope @ng-vibe"
   },
   "private": false,
   "dependencies": {
