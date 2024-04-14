@@ -15,7 +15,7 @@ Designed for Angular 17+, these tools are here to enhance your development proce
 
 ## Available Packages
 
-Explore the `ng-vibe` collection, each library innovatively conceived for Angular 17+, designed to enhance your application's interactivity and aesthetic:
+Explore the <a href="https://www.npmjs.com/org/ng-vibe"> <b>@ng-vibe </b></a> collection, each library innovatively conceived for Angular 17+, designed to enhance your application's interactivity and aesthetic:
 
 - ### **[@ng-vibe/drawer](https://www.npmjs.com/package/@ng-vibe/drawer)**
   **Dynamic Drawer Component:** Seamlessly integrate animated side panels. Perfect for enriching UI with accessible and interactive drawers. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/drawer)
@@ -27,7 +27,7 @@ Explore the `ng-vibe` collection, each library innovatively conceived for Angula
   **Fluid Toast Notifications:** Generate attractive, customizable toast messages in multiple screen positions. Ideal for dynamic feedback and alerts. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/toastify)
 
 - ### **[@ng-vibe/timer](https://www.npmjs.com/package/@ng-vibe/timer)**
-  **Precise Timer Management:** Equip your Angular applications with a comprehensive timer library for handling and managing time efficiently. Perfect for adding countdowns, stopwatches, or any time-sensitive features. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/timer)
+  **Precise Timer Management:** Equip your Angular applications with a comprehensive timer library, perfect for progress or remaining calculations. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/timer)
 
 
 ## Contributing  ❤️
