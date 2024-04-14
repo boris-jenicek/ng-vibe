@@ -1,12 +1,30 @@
 {
   "name": "@ng-vibe/timer",
-  "version": "0.1.0",
+  "description": "A timer library equipped with controls and callbacks, ideal for tracking progress and calculating remaining time",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boris-jenicek/ng-vibe.git",
+    "directory": "libs/timer"
+  },
+  "keywords": [
+    "angular",
+    "timer",
+    "angular-component",
+    "timermanagement",
+    "typescript",
+    "progressreporting",
+    "timercallbacks",
+    "progress",
+    "remaining",
+    "timercontrol"
+  ],
+  "homepage": "https://github.com/boris-jenicek/ng-vibe/tree/main/libs/dialog",
+  "author": "Boris Jenicek",
+  "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^17.2.0",
-    "@angular/core": "^17.2.0"
+    "@angular/common": ">17.0.0",
+    "@angular/core": ">17.0.0"
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
+  "dependencies": {},
   "sideEffects": false
 }
