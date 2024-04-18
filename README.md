@@ -29,6 +29,8 @@ Explore the <a href="https://www.npmjs.com/org/ng-vibe"> <b>@ng-vibe </b></a> co
 - ### **[@ng-vibe/timer](https://www.npmjs.com/package/@ng-vibe/timer)**
   **Precise Timer Management:** Equip your Angular applications with a comprehensive timer library, perfect for progress or remaining calculations. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/timer)
 
+- ### **[@ng-vibe/service-locator](https://www.npmjs.com/package/@ng-vibe/service-locator)**
+  **Enhanced Service Management:** A library that implements the Service Locator pattern to manage service instances in Angular, enabling easy access and dynamic service creation without relying on Angular's built-in DI annotations. [GitHub](https://github.com/boris-jenicek/ng-vibe/tree/main/libs/service-locator)
 
 ## Contributing  ❤️
 

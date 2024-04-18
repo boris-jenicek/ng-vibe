@@ -15,12 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-vibe/apps-shared": ["libs/common/apps-shared/src/index.ts"],
-      "@ng-vibe/button": ["libs/common/button/src/index.ts"],
+      "@ng-vibe/button": ["apps-libs/button/src/index.ts"],
+      "@ng-vibe/color": ["libs/color/src/index.ts"],
       "@ng-vibe/dialog": ["libs/dialog/src/index.ts"],
       "@ng-vibe/drawer": ["libs/drawer/src/index.ts"],
+      "@ng-vibe/service-locator": ["libs/service-locator/src/index.ts"],
       "@ng-vibe/timer": ["libs/timer/src/index.ts"],
-      "@ng-vibe/toastify": ["libs/toastify/src/index.ts"]
+      "@ng-vibe/toastify": ["libs/toastify/src/index.ts"],
+      "@ng-vibe/utils": ["apps-libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
