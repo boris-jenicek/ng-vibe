@@ -7,43 +7,65 @@ export class ColorParser {
     if (color.startsWith('hsl')) return color.includes('hsla') ? 'hsla' : 'hsl';
     throw new Error('Unknown color format');
   }
-
   static parseColor(color: string, format: ColorFormat): number[] {
-    if (format === 'hex') {
-      return this.hexToRgb(color);
-    } else if (format === 'rgb' || format === 'rgba') {
-      const result = color.match(/\d+(\.\d+)?/g);
-      if (!result) {
-        throw new Error('Failed to parse RGB(A) color');
+    try {
+      switch (format) {
+        case 'hex':
+          return this.hexToRgb(color);
+        case 'rgb':
+        case 'rgba':
+          return this.parseRgb(color, format);
+        case 'hsl':
+        case 'hsla':
+          return this.parseHsl(color, format);
+        default:
+          throw new Error(`Unsupported color format: ${format}`);
       }
-      const values = result.map(Number);
-      if (format === 'rgba' && values.length === 3) {
-        values.push(1); // Assume full opacity if alpha isn't specified
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(
+          `Failed to parse color '${color}' as format '${format}': ${error.message}`
+        );
+      } else {
+        throw new Error(
+          `Failed to parse color '${color}' as format '${format}' due to an unknown error.`
+        );
       }
-      return values;
-    } else if (format === 'hsl' || format === 'hsla') {
-      const result = color.match(/([\d.]+)\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%/);
-      if (!result || result.length < 4) {
-        // result[0] is the full match, [1]-[3] are groups
-        throw new Error('Failed to parse HSL(A) color');
-      }
-      const h = parseFloat(result[1]);
-      const s = parseFloat(result[2]) / 100; // Convert percentage to decimal
-      const l = parseFloat(result[3]) / 100; // Convert percentage to decimal
+    }
+  }
 
-      let a = 1; // Default opacity
-      if (format === 'hsla' && color.includes('%,')) {
-        // Check for alpha presence
-        const alphaMatch = color.match(/[\d\.]+(?=\))/);
-        if (alphaMatch) {
-          a = parseFloat(alphaMatch[0]);
-        }
-      }
+  private static parseRgb(color: string, format: 'rgb' | 'rgba'): number[] {
+    const result = color.match(/\d+(\.\d+)?/g);
+    if (!result) {
+      throw new Error('Failed to parse RGB(A) color');
+    }
+    const values = result.map(Number);
+    if (format === 'rgba' && values.length === 3) {
+      values.push(1);
+    }
+    return values;
+  }
 
-      return [h, s, l, a];
+  private static parseHsl(color: string, format: 'hsl' | 'hsla'): number[] {
+    const result = color.match(/([\d.]+)\s*,\s*([\d.]+)%\s*,\s*([\d.]+)%/);
+    if (!result || result.length < 4) {
+      // result[0] is the full match, [1]-[3] are groups
+      throw new Error('Failed to parse HSL(A) color');
+    }
+    const h = parseFloat(result[1]);
+    const s = parseFloat(result[2]) / 100; // Convert percentage to decimal
+    const l = parseFloat(result[3]) / 100; // Convert percentage to decimal
+
+    let a = 1; // Default opacity
+    if (format === 'hsla' && color.includes('%,')) {
+      // Check for alpha presence
+      const alphaMatch = color.match(/[\d\.]+(?=\))/);
+      if (alphaMatch) {
+        a = parseFloat(alphaMatch[0]);
+      }
     }
 
-    throw new Error('Unsupported color format');
+    return [h, s, l, a];
   }
 
   private static hexToRgb(hex: string): number[] {
