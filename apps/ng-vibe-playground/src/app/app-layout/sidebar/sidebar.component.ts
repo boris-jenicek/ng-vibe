@@ -17,6 +17,8 @@ export class SidebarComponent {
     new MenuItem('Dialog', true, 'dialog'),
     new MenuItem('Toastify', true, 'toastify'),
     new MenuItem('Timer', true, 'timer'),
+    new MenuItem('Color', true, 'color'),
+    new MenuItem('Service Locator', true, 'service-locator'),
   ];
 
   menuType = (item: IMenuItem): IMenuItem => item;

@@ -1,0 +1,44 @@
+<div class="container mx-auto py-5">
+  <h3>Color Manager</h3>
+
+  <input
+    [(colorPicker)]="color"
+    [style.background]="color"
+    (colorPickerChange)="changeColor($event)"
+  />
+
+  <div class="flex flex-wrap items-center mt-9">
+    Initial color:
+    <span class="p-2 mx-2" [style.background-color]="colorManager.color">{{
+      colorManager.color
+    }}</span>
+    To hex:
+    <span class="p-2 mx-2" [style.background-color]="toHex">{{ toHex }}</span
+    >To rgb:
+    <span class="p-2 mx-2" [style.background-color]="toRgb">{{ toRgb }}</span
+    >To hsl:
+    <span class="p-2 mx-2" [style.background-color]="toHsl">{{ toHsl }}</span>
+  </div>
+  <div class="flex flex-wrap items-center mt-9">
+    Lighten color:
+    <span class="p-2 mx-2" [style.background-color]="lighten">{{
+      lighten
+    }}</span>
+  </div>
+  <div class="flex flex-wrap items-center mt-9">
+    Darken color:
+    <span class="p-2 mx-2" [style.background-color]="darken">{{ darken }}</span>
+  </div>
+  <div class="flex flex-wrap items-center mt-9">
+    Transparentize color:
+    <span class="p-2 mx-2" [style.background-color]="transparentize">{{
+      transparentize
+    }}</span>
+  </div>
+  <div class="flex flex-wrap items-center mt-9">
+    adjustSaturation color:
+    <span class="p-2 mx-2" [style.background-color]="adjustSaturation">{{
+      adjustSaturation
+    }}</span>
+  </div>
+</div>
