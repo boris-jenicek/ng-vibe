@@ -1,7 +1,7 @@
 {
-  "name": "apps-shared",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/common/apps-shared/src",
+  "name": "utils",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps-libs/utils/src",
   "prefix": "lib",
   "tags": ["scope:shared"],
   "projectType": "library",
