@@ -1,0 +1,27 @@
+{
+  "name": "@ng-vibe/service-locator",
+  "version": "0.0.1",
+  "description": "A library for Angular 17+ that implements the Service Locator pattern to manage service instances in Angular, enabling easy access and dynamic service creation without relying on Angular's built-in DI annotations.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boris-jenicek/ng-vibe.git",
+    "directory": "libs/service-locator"
+  },
+  "keywords": [
+    "angular",
+    "service-locator",
+    "dependency-injection",
+    "angular-di",
+    "service-management",
+    "di"
+  ],
+  "homepage": "https://github.com/boris-jenicek/ng-vibe/tree/main/libs/service-locator",
+  "author": "Boris Jenicek",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": ">17.0.0",
+    "@angular/core": ">17.0.0"
+  },
+  "dependencies": {},
+  "sideEffects": false
+}
